@@ -1,0 +1,86 @@
+package model.entities;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Course implements Comparable<Course>{
+	
+	private String name;
+	
+	private Set<Student> student = new HashSet<>();
+	private Instructor instructor;
+	
+	public Course() {		
+	}
+	
+	public Course(String name) {
+		this.name = name;
+	}
+
+	public Course(String name, Instructor instructor) {
+		this.name = name;
+		this.instructor = instructor;
+	}	
+	
+	public Course(String name, Set<Student> student) {
+		this.name = name;
+		this.student = student;		
+	}
+
+	public Course(String name, Set<Student> student, Instructor instructor) {
+		this.name = name;
+		this.student = student;
+		this.instructor = instructor;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<Student> getStudent() {
+		return student;
+	}
+
+	public void setStudent(Set<Student> student) {
+		this.student = student;
+	}
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+	
+	@Override
+	public String toString() {
+		return "Course [name=" + name + ", student=" + student + ", instructor=" + instructor + "]";
+	}
+	
+	@Override
+	public int compareTo(Course c) {
+		return name.toUpperCase().compareTo(c.getName().toUpperCase());
+	}	
+	
+//	public Set<Student> totalStudentPerInstructor(Instructor instructor, Set<Course> courses) {
+//		
+//		Set<Student> students = new HashSet<>();
+//		for (Course c : courses) {
+//			//if (c.getInstructor().hashCode() == instructor.hashCode()) {
+//				if(c.getInstructor().equals(instructor)) {
+//					List<Student> studentsList = new ArrayList<>();
+//					for(Student s : studentsList) {
+//						
+//					}
+//					students.add(c.getStudent());
+//				}
+//			//}			
+//		}
+//     	return students;
+//	}	
+}
