@@ -1,13 +1,13 @@
 package model.entities;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Course {
 	
 	private String name;
 	
-	private Set<Student> student = new HashSet<>();
+	private Set<Student> student = new TreeSet<>();
 	private Instructor instructor;
 	
 	public Course() {		

@@ -2,10 +2,10 @@ package application;
 
 import java.util.HashSet;
 import java.util.InputMismatchException;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.TreeSet;
 
 import model.entities.Course;
 import model.entities.Instructor;
@@ -21,7 +21,7 @@ public class Program {
 		Course course = null;
 		Student student = null;
 		
-		Set<Course> courses = new TreeSet<>();
+		Set<Course> courses = new LinkedHashSet<>();
 		Set<Student> students = null;
 		
 		try{
@@ -44,7 +44,7 @@ public class Program {
 	
 					System.out.print("How many students for course " + courseName + " in the instructor " + instructorName + "? ");
 					int totalStudents = input.nextInt();				
-					students = new HashSet<>();
+					students = new LinkedHashSet<>();
 					for (int z = 1; z <= totalStudents; z++) {					
 						System.out.print("Enter student number " + z + " in the course " + courseName + " and instructor " + instructorName + ": ");
 						int studentNumber = input.nextInt();
@@ -79,9 +79,9 @@ public class Program {
 				//Obtem lista de estudantes do instrutor
 				students = student.totalStudentPerInstructor(instructorName, courses);				
 			    
-			    System.out.print("Total studants instructor " + instructorName + ": "+ students.size());
+			    System.out.println("Total studants instructor " + instructorName + ": "+ students.size());
 			    
-			    System.out.println("Pesquisar other Instructors (s/n)?");
+			    System.out.print("Pesquisar other Instructors (s/n)?");
 			    response = input.next().charAt(0);	
 			} while (response == 's');
 		}
