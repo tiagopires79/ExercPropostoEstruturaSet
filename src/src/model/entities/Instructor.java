@@ -7,9 +7,6 @@ public class Instructor {
 	
 	private String name;
 	
-	//Set<Instructor> instructors = new HashSet<>();
-	//Set<Instructor> instructors2 = new HashSet<>();
-
 	public Instructor() {		
 	}
 	
@@ -23,9 +20,7 @@ public class Instructor {
 	
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	
+	}	
 	
 	@Override
 	public String toString() {
@@ -33,14 +28,13 @@ public class Instructor {
 	}
 
 	public Set<Instructor> instructorList(Set<Course> courses){
+		if(courses.isEmpty()) {
+			throw new IllegalArgumentException("List can´t be empty");
+		}
 		Set<Instructor> instructors = new HashSet<>();
 		for (Course c : courses) {
 			instructors.add(c.getInstructor());				
 		}		
-		//instructors2.addAll(instructors1);
-		//for (Course c : courses) {
-		//	System.out.println(c);				
-		//}
 		return instructors;
 	} 
 	

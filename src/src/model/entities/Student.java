@@ -23,7 +23,9 @@ public class Student {
 	}
 	
 	public Set<Student> totalStudentPerInstructor(String instructorName, Set<Course> courses) {		
-		//Instructor instructorRef = new Instructor(instructorName);
+		if(courses.isEmpty() || instructorName == null) {
+			throw new IllegalArgumentException("List can´t be empty");
+		}
 		Set<Student> students = new HashSet<>();
 		for (Course c : courses) {
 			if (c.getInstructor().getName().toUpperCase().equals(instructorName.toUpperCase())) {				
@@ -62,20 +64,4 @@ public class Student {
 			return false;
 		return true;
 	}	
-	
-//	public Set<Student> totalStudentPerInstructor(Instructor instructor, Set<Course> courseSet) {
-//		
-//		Set<Student> students1 = new HashSet<>();
-//		for (Course c : courseSet) {
-//			if (c.getInstructor().hashCode() == instructor.hashCode()) {
-//				if(c.getInstructor().equals(instructor)) {
-//					students1.add(c.getStudent());
-//				}
-//			}
-//			
-//		}
-//		return students1;		
-//	}
-	
-	
 }

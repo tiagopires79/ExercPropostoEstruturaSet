@@ -3,7 +3,7 @@ package model.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Course implements Comparable<Course>{
+public class Course {
 	
 	private String name;
 	
@@ -61,26 +61,4 @@ public class Course implements Comparable<Course>{
 	public String toString() {
 		return "Course [name=" + name + ", student=" + student + ", instructor=" + instructor + "]";
 	}
-	
-	@Override
-	public int compareTo(Course c) {
-		return name.toUpperCase().compareTo(c.getName().toUpperCase());
-	}	
-	
-//	public Set<Student> totalStudentPerInstructor(Instructor instructor, Set<Course> courses) {
-//		
-//		Set<Student> students = new HashSet<>();
-//		for (Course c : courses) {
-//			//if (c.getInstructor().hashCode() == instructor.hashCode()) {
-//				if(c.getInstructor().equals(instructor)) {
-//					List<Student> studentsList = new ArrayList<>();
-//					for(Student s : studentsList) {
-//						
-//					}
-//					students.add(c.getStudent());
-//				}
-//			//}			
-//		}
-//     	return students;
-//	}	
 }
