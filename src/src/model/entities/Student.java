@@ -22,13 +22,19 @@ public class Student {
 		this.number = number;
 	}
 	
-	public Set<Student> totalStudentPerInstructor(String instructorName, Set<Course> courses) {		
-		if(courses.isEmpty() || instructorName == null) {
+	public Set<Student> totalStudentPerInstructor(String instructorName, Set<Course> courses) {
+		Instructor newInstructor = new Instructor(instructorName);
+		Set<Instructor> instructorList = newInstructor.instructorList(courses);	
+		
+		if(!instructorList.contains(newInstructor)) {
+			throw new IllegalArgumentException("Instructor not exits");
+		}
+		else if(courses.isEmpty() || instructorName == null) {
 			throw new IllegalArgumentException("List can´t be empty");
 		}
 		Set<Student> students = new HashSet<>();
 		for (Course c : courses) {
-			if (c.getInstructor().getName().toUpperCase().equals(instructorName.toUpperCase())) {				
+			if (c.getInstructor().equals(newInstructor)) {				
 				students.addAll(c.getStudent());
 			}					
 		}		

@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 import model.entities.Course;
 import model.entities.Instructor;
@@ -20,7 +21,7 @@ public class Program {
 		Course course = null;
 		Student student = null;
 		
-		Set<Course> courses = new HashSet<>();
+		Set<Course> courses = new TreeSet<>();
 		Set<Student> students = null;
 		
 		try{
@@ -74,10 +75,9 @@ public class Program {
 				
 				System.out.print("Pesquisar total de alunos para qual instrutor da lista acima? ");
 				String instructorName = input.nextLine();
-				
+				//Instructor newInstructor = new Instructor(instructorName);
 				//Obtem lista de estudantes do instrutor
-				students = student.totalStudentPerInstructor(instructorName, courses);
-				
+				students = student.totalStudentPerInstructor(instructorName, courses);				
 			    
 			    System.out.print("Total studants instructor " + instructorName + ": "+ students.size());
 			    
@@ -87,6 +87,10 @@ public class Program {
 		}
 		catch(InputMismatchException e){
 			throw new InputMismatchException("Error: " + e.getMessage());
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
 		}
 	    finally {
 	    	input.close();
